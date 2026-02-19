@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Futuro do Compliance no Brasil 2026 | Relatório de Inteligência Estratégica</title>
+    <meta name="description" content="O Futuro do Compliance no Brasil em 5 Atos - Relatório de Inteligência Estratégica e Análise SWOT 2026.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Manrope", "sans-serif"],
+                    },
+                    colors: {
+                        bizz: {
+                            dark: "#050505",
+                            panel: "#0f0f0f",
+                            border: "#27272a",
+                            purple: "#7c3aed",
+                            purpleHover: "#6d28d9",
+                            text: "#e4e4e7",
+                            muted: "#a1a1aa"
+                        }
+                    },
+                    backgroundImage: {
+                        "hero-pattern": "linear-gradient(to bottom, rgba(5,5,5,0.3), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
+                        "texture-dots": "radial-gradient(#27272a 1px, transparent 1px)"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+        body { background-color: #050505; color: #e4e4e7; overflow-x: hidden; }
+        .glass { background: rgba(15,15,15,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards; opacity: 0; transform: translateY(20px); }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .modal-backdrop { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+        .modal-backdrop.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: translateY(50px) scale(0.95); opacity: 0; transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .modal-backdrop.active .modal-content { transform: translateY(0) scale(1); opacity: 1; }
+        h1, h2, h3, h4 { letter-spacing: -0.02em; }
+        .hairline { height: 1px; background: linear-gradient(90deg, transparent, #27272a, transparent); width: 100%; }
+        .bg-grid-pattern { background-size: 40px 40px; background-image: radial-gradient(circle, #27272a 1px, transparent 1px); opacity: 0.1; }
+    </style>
+</head>
+<body class="antialiased selection:bg-bizz-purple selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex flex-col leading-none">
+                <span class="text-2xl font-display font-bold text-white tracking-tighter">Compliance<span class="text-bizz-purple">.</span>BR</span>
+                <span class="text-[10px] text-bizz-muted uppercase tracking-widest">Intelligence Unit</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-bizz-muted">
+                <a href="#intro" class="hover:text-white transition-colors">Visão Geral</a>
+                <a href="#atos" class="hover:text-white transition-colors">Os 5 Atos</a>
+                <a href="#swot" class="hover:text-white transition-colors">Matriz Estratégica</a>
+                <a href="#contato" class="px-5 py-2.5 border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 rounded-sm">Fale Conosco</a>
+            </div>
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="intro" class="relative h-screen flex items-center justify-center overflow-hidden bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+            <div class="max-w-4xl">
+                <span class="inline-block py-1 px-3 border border-bizz-purple/50 rounded-full bg-bizz-purple/10 text-bizz-purple text-xs font-bold uppercase tracking-widest mb-6 fade-in-up">
+                    Relatório de Inteligência Estratégica 2026
+                </span>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8 fade-in-up delay-100">
+                    O Futuro do <br>Compliance<br><span class="text-bizz-purple">no Brasil.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-bizz-muted font-light max-w-2xl leading-relaxed mb-10 fade-in-up delay-200">
+                    Conformidade não é mais defesa. É arquitetura de resiliência.
+                    <span class="text-white">Uma análise em 5 Atos do ecossistema GRC brasileiro para 2026.</span>
+                </p>
+                <div class="flex flex-wrap gap-4 fade-in-up delay-300">
+                    <a href="#atos" class="px-8 py-4 bg-bizz-purple hover:bg-bizz-purpleHover text-white font-medium transition-all duration-300 rounded-sm shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                        Ler o Relatório Completo
+                    </a>
+                    <a href="#swot" class="px-8 py-4 border border-white/20 hover:border-white text-white font-medium transition-all duration-300 rounded-sm backdrop-blur-sm">
+                        Ver Análise SWOT
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50">
+            <span class="text-xs text-white mb-2 uppercase tracking-widest">Scroll</span>
+            <i data-lucide="arrow-down" class="w-5 h-5 text-white"></i>
+        </div>
+    </header>
+
+    <!-- POR QUE ESTE RELATÓRIO -->
+    <section class="py-24 bg-white text-bizz-dark relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="sticky top-32">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Por que este relatório <br>define 2026?
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        Baseado em dados primários de 2024-2025, pesquisas da KPMG e Aliant, e análises jurídicas, o documento disseca a "tempestade perfeita" que o compliance brasileiro enfrenta: riscos biopsicossociais, geopolíticos e tecnológicos convergindo ao mesmo tempo.
+                    </p>
+                    <div class="h-1 w-20 bg-bizz-purple"></div>
+                </div>
+                <div class="grid grid-cols-1 gap-12">
+                    <div class="flex gap-6 group">
+                        <div class="w-16 h-16 shrink-0 bg-bizz-purple/10 flex items-center justify-center rounded-sm group-hover:bg-bizz-purple transition-colors duration-300">
+                            <i data-lucide="heart-pulse" class="w-8 h-8 text-bizz-purple group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Crise Humanitária Corporativa</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                546.254 afastamentos por transtornos mentais em 2025. Burnout e ansiedade deixam de ser pauta de RH para virar passivo jurídico. A NR-1 mudou tudo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 group">
+                        <div class="w-16 h-16 shrink-0 bg-bizz-purple/10 flex items-center justify-center rounded-sm group-hover:bg-bizz-purple transition-colors duration-300">
+                            <i data-lucide="shield-alert" class="w-8 h-8 text-bizz-purple group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Crime Organizado na Supply Chain</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                PCC e CV evoluíram para holdings criminosas transnacionais. A due diligence tradicional é insuficiente frente a empresas de fachada com CNPJ limpo e contabilidade regular.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 group">
+                        <div class="w-16 h-16 shrink-0 bg-bizz-purple/10 flex items-center justify-center rounded-sm group-hover:bg-bizz-purple transition-colors duration-300">
+                            <i data-lucide="vote" class="w-8 h-8 text-bizz-purple group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Campo Minado Político — Eleições 2026</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                O trauma de 2022 voltou como lei. Assédio eleitoral agora é crime contra a organização do trabalho. MPT e TSE com arsenal punitivo plenamente operacional.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 group">
+                        <div class="w-16 h-16 shrink-0 bg-bizz-purple/10 flex items-center justify-center rounded-sm group-hover:bg-bizz-purple transition-colors duration-300">
+                            <i data-lucide="brain-circuit" class="w-8 h-8 text-bizz-purple group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Governança da Inteligência Artificial</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Do hype à auditoria. O Marco Legal da IA (PL 2338), a ANPD fortalecida e o fenômeno da Shadow AI criam um novo regime de risco e responsabilidade algorítmica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUMÁRIO EXECUTIVO -->
+    <section class="py-24 bg-bizz-panel border-y border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069')] bg-cover bg-center opacity-10 hidden lg:block"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-bizz-panel via-bizz-panel to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-2xl">
+                <span class="text-bizz-purple font-bold tracking-widest uppercase text-xs mb-4 block">Sumário Executivo</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-8">
+                    O Ponto de Inflexão <br>do Compliance Brasileiro
+                </h2>
+                <div class="prose prose-lg prose-invert text-bizz-muted">
+                    <p class="mb-6">
+                        A função de compliance no Brasil atingiu sua maioridade institucional, mas enfrenta agora sua crise de identidade mais profunda. As empresas investiram massivamente em arquiteturas de conformidade — canais de denúncia, códigos de conduta, due diligence de terceiros — mas essas estruturas estão <strong>desconectadas dos riscos emergentes da realidade operacional</strong>.
+                    </p>
+                    <p class="mb-6">
+                        Diferente da década anterior, marcada pela resposta reativa ao Pós-Lava Jato, o ciclo de 2026 é caracterizado pela <strong>complexidade difusa</strong>. Os riscos tornaram-se biopsicossociais, geopolíticos e tecnológicos simultaneamente. Uma "tempestade perfeita" que exige um novo perfil de liderança em GRC.
+                    </p>
+                    <p>
+                        O compliance deixa de ser <strong>contenção</strong> para se tornar a <strong>inteligência imunológica da corporação</strong>.
+                    </p>
+                </div>
+                <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row gap-8">
+                    <div>
+                        <span class="block text-3xl font-display font-bold text-white mb-1">546.254</span>
+                        <span class="text-sm text-bizz-muted">Afastamentos por saúde mental (2025)</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-display font-bold text-white mb-1">R$3,5bi</span>
+                        <span class="text-sm text-bizz-muted">Custo anual ao Estado (INSS)</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-display font-bold text-white mb-1">55%</span>
+                        <span class="text-sm text-bizz-muted">Empresas com due diligence eficiente (KPMG)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OS 5 ATOS -->
+    <section id="atos" class="py-24 bg-bizz-dark relative">
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Os 5 Atos do Drama Corporativo Brasileiro</h2>
+                <p class="text-lg text-bizz-muted">
+                    Clique nos cards abaixo para acessar a análise exaustiva e rigorosa de cada força tectônica que está redefinindo a governança corporativa no Brasil.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <article class="group relative bg-bizz-panel border border-white/5 p-8 hover:border-bizz-purple transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bizz-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-xs font-mono text-bizz-purple mb-4">ATO I</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">A Crise Humanitária Corporativa e a Nova NR-1</h3>
+                    <p class="text-bizz-muted text-sm leading-relaxed mb-8 flex-grow">
+                        Saúde mental como risco jurídico. 546 mil afastamentos, o viés de gênero da crise e a "infantilização do gestor" que sobrecarrega o compliance com conflitos gerenciais.
+                    </p>
+                    <button onclick="openModal('modal-ato1')" class="w-full py-3 bg-white/5 hover:bg-bizz-purple text-white text-sm font-medium transition-colors border border-white/10 group-hover:border-bizz-purple">
+                        Ler Análise Completa
+                    </button>
+                </article>
+
+                <article class="group relative bg-bizz-panel border border-white/5 p-8 hover:border-bizz-purple transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bizz-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-xs font-mono text-bizz-purple mb-4">ATO II</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">O Elo Mais Fraco — Cadeia de Suprimentos e Crime Organizado</h3>
+                    <p class="text-bizz-muted text-sm leading-relaxed mb-8 flex-grow">
+                        PCC e CV como holdings criminosas. A falência da due diligence tradicional e as novas tecnologias de detecção com IA, análise de grafos e inteligência geoespacial.
+                    </p>
+                    <button onclick="openModal('modal-ato2')" class="w-full py-3 bg-white/5 hover:bg-bizz-purple text-white text-sm font-medium transition-colors border border-white/10 group-hover:border-bizz-purple">
+                        Ler Análise Completa
+                    </button>
+                </article>
+
+                <article class="group relative bg-bizz-panel border border-white/5 p-8 hover:border-bizz-purple transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bizz-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-xs font-mono text-bizz-purple mb-4">ATO III</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">O Campo Minado Político — Assédio Eleitoral e Polarização</h3>
+                    <p class="text-bizz-muted text-sm leading-relaxed mb-8 flex-grow">
+                        O trauma de 2022 e a preparação para 2026. O Pacto do MPT pela democracia, a definição ampliada de assédio eleitoral e a obrigação da "neutralidade ativa" corporativa.
+                    </p>
+                    <button onclick="openModal('modal-ato3')" class="w-full py-3 bg-white/5 hover:bg-bizz-purple text-white text-sm font-medium transition-colors border border-white/10 group-hover:border-bizz-purple">
+                        Ler Análise Completa
+                    </button>
+                </article>
+
+                <article class="group relative bg-bizz-panel border border-white/5 p-8 hover:border-bizz-purple transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bizz-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-xs font-mono text-bizz-purple mb-4">ATO IV</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">A Governança da Inteligência Artificial</h3>
+                    <p class="text-bizz-muted text-sm leading-relaxed mb-8 flex-grow">
+                        Do hype à auditoria. O PL 2338, a ANPD fortalecida, o risco do viés algorítmico e o fenômeno da Shadow AI expondo dados sensíveis em ambientes públicos.
+                    </p>
+                    <button onclick="openModal('modal-ato4')" class="w-full py-3 bg-white/5 hover:bg-bizz-purple text-white text-sm font-medium transition-colors border border-white/10 group-hover:border-bizz-purple">
+                        Ler Análise Completa
+                    </button>
+                </article>
+
+                <article class="group relative bg-bizz-panel border border-white/5 p-8 hover:border-bizz-purple transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bizz-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-xs font-mono text-bizz-purple mb-4">ATO V</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Maturidade Estratégica — Dados, Confiança e o Fim do "Apaga-Incêndio"</h3>
+                    <p class="text-bizz-muted text-sm leading-relaxed mb-8 flex-grow">
+                        A virada analítica. O Net Trust Score da Aliant, a metáfora da iluminação pública e a transformação do Compliance Officer em arquiteto de inteligência estratégica.
+                    </p>
+                    <button onclick="openModal('modal-ato5')" class="w-full py-3 bg-white/5 hover:bg-bizz-purple text-white text-sm font-medium transition-colors border border-white/10 group-hover:border-bizz-purple">
+                        Ler Análise Completa
+                    </button>
+                </article>
+
+                <article class="group relative bg-bizz-purple/10 border border-bizz-purple/30 p-8 hover:bg-bizz-purple/20 transition-all duration-300 flex flex-col h-full hover:-translate-y-2">
+                    <span class="text-xs font-mono text-white mb-4">CONCLUSÃO</span>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">O Compliance Officer como CRO — Chief Resilience Officer</h3>
+                    <p class="text-white/70 text-sm leading-relaxed mb-8 flex-grow">
+                        A síntese estratégica. Poliglotismo de riscos, integridade como vantagem competitiva e o fim da burocracia em favor da consciência estratégica.
+                    </p>
+                    <button onclick="openModal('modal-conclusao')" class="w-full py-3 bg-white text-bizz-purple hover:bg-bizz-purple hover:text-white text-sm font-medium transition-colors shadow-lg">
+                        Ver Roadmap Estratégico
+                    </button>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SWOT INTEGRADA -->
+    <section id="swot" class="py-24 bg-white text-bizz-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <span class="text-bizz-purple font-bold tracking-widest uppercase text-xs mb-2 block">Matriz de Decisão</span>
+                <h2 class="font-display text-4xl font-bold mb-6">Análise SWOT Integrada — Brasil 2026</h2>
+                <p class="text-gray-600 max-w-2xl">
+                    Uma visão transversal das Forças, Fraquezas, Oportunidades e Ameaças mapeadas para o ecossistema de conformidade nacional no ciclo 2026.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-gray-50 p-8 border border-gray-100 rounded-sm hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-green-100 rounded text-green-700"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                        <h3 class="text-xl font-bold">Forças (Strengths)</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Institucionalização:</strong> Departamentos de Compliance são realidade na maioria das grandes e médias empresas brasileiras.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Tecnologia:</strong> Acesso a ferramentas de ponta para gestão de canais, due diligence e treinamento (92% com canais de denúncia — KPMG).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Base Legal Madura:</strong> Lei Anticorrupção, LGPD e Nova NR-1 formam um arcabouço legislativo sólido e progressivo.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Dados Históricos:</strong> Série histórica de 10 anos da Aliant e KPMG formando base de inteligência sobre riscos e comportamentos.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 border border-gray-100 rounded-sm hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-yellow-100 rounded text-yellow-700"><i data-lucide="alert-circle" class="w-5 h-5"></i></div>
+                        <h3 class="text-xl font-bold">Fraquezas (Weaknesses)</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x-circle" class="w-4 h-4 text-yellow-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Cultura de Gestão:</strong> "Infantilização" dos líderes que terceirizam conflitos para o compliance, desviando recursos de riscos reais.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x-circle" class="w-4 h-4 text-yellow-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Silos Organizacionais:</strong> Desconexão entre Saúde Mental (RH/SESMT), Jurídico e Gestão de Riscos (Compliance).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x-circle" class="w-4 h-4 text-yellow-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Ponto Cego na Cadeia:</strong> Due diligence formalista que falha em detectar crime organizado sofisticado com "laranjas" de ficha limpa.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x-circle" class="w-4 h-4 text-yellow-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Recursos Escassos:</strong> Equipes de compliance enxutas e sobrecarregadas com demandas operacionais e conflitos interpessoais.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 border border-gray-100 rounded-sm hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-blue-100 rounded text-blue-700"><i data-lucide="lightbulb" class="w-5 h-5"></i></div>
+                        <h3 class="text-xl font-bold">Oportunidades (Opportunities)</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="arrow-right-circle" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Convergência ESG:</strong> Compliance como pilar "G" (Governança) que sustenta o "S" (Saúde Mental/Social) e "E" (Ambiental).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="arrow-right-circle" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Inteligência Artificial:</strong> Salto de produtividade via automação, análise preditiva e monitoramento de 100% das transações em tempo real.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="arrow-right-circle" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Diferenciação de Mercado:</strong> Integridade como vantagem competitiva em licitações públicas e captação de investimentos internacionais.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="arrow-right-circle" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Pactos Setoriais:</strong> Ação coletiva para elevar a barra de integridade em setores críticos como combustíveis, transporte e saúde.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 border border-gray-100 rounded-sm hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-red-100 rounded text-red-700"><i data-lucide="flame" class="w-5 h-5"></i></div>
+                        <h3 class="text-xl font-bold">Ameaças (Threats)</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Crime Organizado:</strong> Infiltração sistêmica do PCC/CV na economia formal — risco existencial para a integridade das cadeias de valor.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Polarização Política:</strong> Eleições de 2026 como gatilho para conflitos internos e passivos legais milionários por assédio eleitoral.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Regulação de IA:</strong> Insegurança jurídica e risco de sanções pesadas com o PL 2338 (até 50 milhões ou % do faturamento).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 mt-0.5 shrink-0"></i>
+                            <span><strong>Crise de Saúde Pública:</strong> Epidemia de transtornos mentais colapsando a força de trabalho, aumentando FAP/RAT e passivos trabalhistas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INDICADORES CRÍTICOS -->
+    <section class="py-24 bg-bizz-dark border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold text-white mb-12 text-center">Indicadores Críticos de Risco — Brasil 2026</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="overflow-hidden border border-white/10 rounded-sm bg-bizz-panel">
+                    <div class="bg-white/5 px-6 py-4 border-b border-white/10">
+                        <h3 class="font-bold text-white">Red Flags: Cadeia de Suprimentos (PCC/CV)</h3>
+                    </div>
+                    <table class="w-full text-sm text-left text-bizz-muted">
+                        <thead class="text-xs uppercase bg-black/20 text-bizz-purple">
+                            <tr>
+                                <th class="px-6 py-3">Categoria</th>
+                                <th class="px-6 py-3">Sinal de Alerta</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-medium text-white">Estrutura</td>
+                                <td class="px-6 py-4">Mudanças frequentes de sócios, "laranjas" com fichas limpas, endereços compartilhados.</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-medium text-white">Operacional</td>
+                                <td class="px-6 py-4">Crescimento de receita incompatível com estrutura física; rotas logísticas antieconômicas.</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-medium text-white">Financeiro</td>
+                                <td class="px-6 py-4">Dados bancários divergentes em faturas (fraude do boleto); pagamentos a terceiros não relacionados.</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-medium text-white">Geográfico</td>
+                                <td class="px-6 py-4">Endereço em áreas controladas por milícias ou tráfico; incompatibilidades logísticas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-6 bg-bizz-panel border border-white/5 rounded-sm h-80 relative">
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="bg-black pt-20 pb-10 text-bizz-muted border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <span class="text-2xl font-display font-bold text-white tracking-tighter mb-6 block">Compliance<span class="text-bizz-purple">.</span>BR</span>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Capacitamos líderes e organizações para navegar a complexidade do cenário regulatório brasileiro através de inteligência, tecnologia e integridade.
+                    </p>
+                    <a href="#atos" class="inline-flex items-center gap-2 text-white hover:text-bizz-purple transition-colors font-medium">
+                        Ler o Relatório <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="text-white font-bold mb-6">Fontes Primárias</h4>
+                    <p class="text-sm mb-2">KPMG — 6ª Pesquisa de Maturidade GRC</p>
+                    <p class="text-sm mb-2">Aliant — 10ª Pesquisa Nacional</p>
+                    <p class="text-sm mb-2">INSS / Previdência Social 2025</p>
+                    <p class="text-sm">Enccla / COAF / ANPD</p>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="text-white font-bold mb-6">Marco Regulatório</h4>
+                    <p class="text-sm mb-2">Lei 12.846 (Lei Anticorrupção)</p>
+                    <p class="text-sm mb-2">LGPD — Lei 13.709/2018</p>
+                    <p class="text-sm mb-2">Nova NR-1 (Portaria MTE 1.419)</p>
+                    <p class="text-sm">PL 2338/2023 — Marco Legal da IA</p>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="text-white font-bold mb-6">Horizonte</h4>
+                    <p class="text-sm text-gray-500">
+                        Dados primários: 2024–2025<br>
+                        Projeções: Ciclo 2026<br>
+                        Público-alvo: Alta Liderança, Conselhos de Administração, Profissionais Seniores de GRC
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2026 Compliance.BR — Todos os direitos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal-overlay" class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" onclick="closeModal()"></div>
+        <div class="modal-content relative bg-[#0f0f0f] border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-sm shadow-2xl flex flex-col">
+            <div class="sticky top-0 bg-[#0f0f0f]/95 backdrop-blur z-10 px-8 py-6 border-b border-white/5 flex justify-between items-start">
+                <div>
+                    <span id="modal-tag" class="text-xs font-mono text-bizz-purple uppercase tracking-widest mb-2 block">ATO I</span>
+                    <h2 id="modal-title" class="text-2xl md:text-3xl font-display font-bold text-white">Título do Modal</h2>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white hover:bg-white/10 p-2 rounded-full transition-all">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="px-8 py-10 text-gray-300 leading-relaxed space-y-6"></div>
+            <div class="px-8 py-6 bg-black/20 border-t border-white/5">
+                <button onclick="closeModal()" class="w-full py-3 border border-white/20 text-white hover:bg-white hover:text-black transition-all text-sm font-bold uppercase tracking-widest">
+                    Fechar Leitura
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modalContent = {
+            "modal-ato1": {
+                tag: "ATO I: SAÚDE MENTAL & NR-1",
+                title: "A Crise Humanitária Corporativa e a Nova NR-1",
+                body: `
+                    <h3 class="text-xl text-white font-bold mb-4">Saúde Mental como Risco Jurídico e Operacional</h3>
+                    <p class="mb-6">O Brasil vive uma crise de saúde mental que transbordou os limites da saúde pública para se tornar o principal passivo oculto das corporações. Os números do Ministério da Previdência Social para 2025 são inequívocos: o país registrou um recorde histórico de <strong>546.254 afastamentos por transtornos mentais</strong>, um salto de 15% em relação ao recorde anterior de 2024. O impacto financeiro direto ao Estado é de R$ 3,5 bilhões anuais.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-[#1a1a1a] p-4 border border-white/5 text-center">
+                            <span class="block text-3xl font-bold text-bizz-purple mb-1">166.489</span>
+                            <span class="text-sm text-gray-400">Licenças por Ansiedade</span>
+                        </div>
+                        <div class="bg-[#1a1a1a] p-4 border border-white/5 text-center">
+                            <span class="block text-3xl font-bold text-bizz-purple mb-1">126.608</span>
+                            <span class="text-sm text-gray-400">Afastamentos por Depressão</span>
+                        </div>
+                        <div class="bg-[#1a1a1a] p-4 border border-white/5 text-center">
+                            <span class="block text-3xl font-bold text-bizz-purple mb-1">&gt;60%</span>
+                            <span class="text-sm text-gray-400">Representadas por Mulheres</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">O Novo Marco Regulatório: NR-1 e Riscos Psicossociais</h3>
+                    <p class="mb-6">A atualização da Norma Regulamentadora nº 1, vigente a partir de maio de 2025, alterou o DNA da gestão de riscos no Brasil. A nova NR-1 obriga as empresas a identificar, avaliar e controlar <strong>riscos psicossociais</strong> — fatores como metas inalcançáveis, assédio moral institucional, falta de autonomia e liderança tóxica agora são passíveis de fiscalização e autuação pelo Ministério do Trabalho e Emprego (MTE).</p>
+
+                    <div class="bg-bizz-purple/10 border-l-4 border-bizz-purple p-6 mb-8">
+                        <h4 class="text-white font-bold mb-2">O Fenômeno da "Infantilização do Gestor"</h4>
+                        <p class="text-sm">Com o fortalecimento dos canais de denúncia, a liderança média abdica de seu papel de gestora de conflitos. Diante de qualquer atrito, o gestor orienta o colaborador a procurar o canal de denúncias ou RH. O departamento de compliance torna-se uma "clínica psicológica", desviando recursos da investigação de fraudes e riscos sistêmicos reais. (Diagnóstico: Mário Spinelli)</p>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Análise SWOT — Ato I</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/10 border border-green-900/30 p-4">
+                            <h4 class="text-green-400 font-bold mb-2">Forças</h4>
+                            <p class="text-sm">92% das grandes empresas com canais de denúncia consolidados (KPMG). Maior consciência da alta liderança sobre o impacto financeiro do turnover.</p>
+                        </div>
+                        <div class="bg-yellow-900/10 border border-yellow-900/30 p-4">
+                            <h4 class="text-yellow-400 font-bold mb-2">Fraquezas</h4>
+                            <p class="text-sm">Gestores despreparados para saúde mental; falta de métricas objetivas para quantificar risco psicossocial no GRO; cultura de "meta a qualquer custo".</p>
+                        </div>
+                        <div class="bg-blue-900/10 border border-blue-900/30 p-4">
+                            <h4 class="text-blue-400 font-bold mb-2">Oportunidades</h4>
+                            <p class="text-sm">Certificação como "empresa promotora de saúde mental" (Lei 14.831) como diferencial de employer branding. Uso de dados do canal para mapear zonas de liderança tóxica.</p>
+                        </div>
+                        <div class="bg-red-900/10 border border-red-900/30 p-4">
+                            <h4 class="text-red-400 font-bold mb-2">Ameaças</h4>
+                            <p class="text-sm">Explosão de judicialização baseada na nova NR-1; aumento das alíquotas de FAP/RAT; risco reputacional agudo em casos de suicídio ou colapso divulgados em redes sociais.</p>
+                        </div>
+                    </div>
+                `
+            },
+            "modal-ato2": {
+                tag: "ATO II: SUPPLY CHAIN & CRIME ORGANIZADO",
+                title: "O Elo Mais Fraco — Cadeia de Suprimentos e Crime Organizado",
+                body: `
+                    <h3 class="text-xl text-white font-bold mb-4">A Simbiose entre Economia Formal e Ilícita</h3>
+                    <p class="mb-6">Facções como o PCC e o Comando Vermelho (CV) evoluíram de grupos prisionais para <strong>holdings criminosas transnacionais</strong>, operando com sofisticação empresarial. Para 2026, a integridade da cadeia de suprimentos é o "elo mais fraco" do compliance nacional. O risco não é mais apenas o suborno de um fiscal — é a contratação inadvertida de uma transportadora, empresa de segurança ou recicladora que serve como vetor de lavagem de dinheiro para o narcotráfico.</p>
+
+                    <div class="bg-red-900/10 border border-red-900/30 p-6 mb-6">
+                        <h4 class="text-red-400 font-bold mb-2">Alerta Crítico: A Falência da Due Diligence Tradicional</h4>
+                        <p class="text-sm text-red-200">Modelos baseados em consultas de CNPJ e listas restritivas (OFAC, ONU) são inócuos contra esse novo tipo de ameaça. O crime organizado utiliza "laranjas" com fichas criminais limpas e empresas de fachada constituídas legalmente. Apenas 55% das empresas consideram seus processos de due diligence eficientes (KPMG), e o TPRM caiu para terceiro lugar em prioridade — dado preocupante diante da escalada do risco.</p>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Novas Tecnologias de Detecção</h3>
+                    <p class="mb-4">A Enccla priorizou para 2025 a identificação de <strong>Beneficiários Finais</strong> como chave para desmantelar esquemas de lavagem. O compliance deve adotar:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-400 mb-6">
+                        <li><strong>IA para Mídias Negativas:</strong> Varredura contínua de notícias locais vinculando sócios ocultos a atividades ilícitas — algo que background checks estáticos perdem.</li>
+                        <li><strong>Análise de Padrões de Fraude:</strong> Detecção de faturas com dados bancários divergentes ("fraude do boleto") e crescimento de receita incompatível com estrutura física.</li>
+                        <li><strong>Inteligência Geoespacial:</strong> Cruzamento de endereços de fornecedores com áreas controladas por milícias ou tráfico.</li>
+                    </ul>
+                    <p class="mb-6">A responsabilidade fiduciária dos conselhos foi consolidada juridicamente: a ignorância deliberada ("cegueira intencional") é uma estratégia de defesa insustentável.</p>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Análise SWOT — Ato II</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/10 border border-green-900/30 p-4">
+                            <h4 class="text-green-400 font-bold mb-2">Forças</h4>
+                            <p class="text-sm">Maior rigor do COAF e Banco Central sobre beneficiários finais. Acesso crescente a bases de dados públicas e privadas para background check.</p>
+                        </div>
+                        <div class="bg-yellow-900/10 border border-yellow-900/30 p-4">
+                            <h4 class="text-yellow-400 font-bold mb-2">Fraquezas</h4>
+                            <p class="text-sm">Baixa visibilidade sobre cadeias profundas (Tier 2 e Tier 3); custo elevado para due diligence investigativa em milhares de fornecedores; medo e risco físico para auditores em campo.</p>
+                        </div>
+                        <div class="bg-blue-900/10 border border-blue-900/30 p-4">
+                            <h4 class="text-blue-400 font-bold mb-2">Oportunidades</h4>
+                            <p class="text-sm">IA para análise preditiva (grafos e vínculos); colaboração setorial para listas de risco (nos limites da LGPD); fortalecimento da Inteligência Corporativa interna.</p>
+                        </div>
+                        <div class="bg-red-900/10 border border-red-900/30 p-4">
+                            <h4 class="text-red-400 font-bold mb-2">Ameaças</h4>
+                            <p class="text-sm">Infiltração silenciosa em setores críticos (combustíveis, transporte, limpeza); responsabilização criminal de executivos por lavagem (Teoria do Domínio do Fato); sanções da CSDDD europeia.</p>
+                        </div>
+                    </div>
+                `
+            },
+            "modal-ato3": {
+                tag: "ATO III: POLÍTICA & ELEIÇÕES 2026",
+                title: "O Campo Minado Político — Assédio Eleitoral e Polarização",
+                body: `
+                    <h3 class="text-xl text-white font-bold mb-4">O Trauma de 2022 e a Preparação para 2026</h3>
+                    <p class="mb-6">As eleições gerais de 2026 são o teste de estresse definitivo para a neutralidade corporativa. O pleito de 2022 deixou cicatrizes profundas com uma explosão de denúncias de assédio eleitoral — coação de funcionários para votar em determinados candidatos. O MPT e o TSE reagiram com vigor: o assédio eleitoral foi elevado à categoria de <strong>crime contra a organização do trabalho</strong>, com multas multimilionárias e danos reputacionais irreversíveis.</p>
+
+                    <div class="bg-bizz-purple/10 border-l-4 border-bizz-purple p-6 mb-8">
+                        <h4 class="text-white font-bold mb-2">O Pacto pela Democracia (MPT 2026)</h4>
+                        <p class="text-sm">O MPT firmou o "Pacto Institucional para a Defesa da Democracia nas Relações de Trabalho" com centrais sindicais. Na prática, isso cria uma rede de fiscalização distribuída: sindicatos e trabalhadores estão sendo treinados para identificar e denunciar, em tempo real, qualquer tentativa de manipulação política no ambiente de trabalho.</p>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Definição Ampliada de Assédio Eleitoral</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-400 mb-6">
+                        <li><strong>Discriminação passiva:</strong> Exclusão ou preterimento de funcionários com base em convicção política.</li>
+                        <li><strong>Abuso de poder diretivo:</strong> Reuniões obrigatórias com viés político ou uso de bens da empresa para propaganda.</li>
+                        <li><strong>Manipulação de jornada:</strong> Dificultar a liberação para votação no dia do pleito.</li>
+                        <li><strong>WhatsApp corporativo:</strong> Discurso de ódio ou político em grupos de trabalho da empresa.</li>
+                    </ul>
+
+                    <p class="mb-6">O compliance não pode mais ser passivo. A <strong>"neutralidade ativa"</strong> exige educar líderes e acionistas sobre os limites do poder diretivo. A liberdade de expressão do dono termina onde começa a subordinação jurídica do empregado.</p>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Análise SWOT — Ato III</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/10 border border-green-900/30 p-4">
+                            <h4 class="text-green-400 font-bold mb-2">Forças</h4>
+                            <p class="text-sm">Jurisprudência recente (2022-2024) oferece clareza sobre ilícitos. Canais de denúncia anônimos operacionais. Apoio institucional do MPT para adequação.</p>
+                        </div>
+                        <div class="bg-yellow-900/10 border border-yellow-900/30 p-4">
+                            <h4 class="text-yellow-400 font-bold mb-2">Fraquezas</h4>
+                            <p class="text-sm">Dificuldade de controlar fala de acionistas/donos em empresas familiares; polarização interna entre colaboradores; WhatsApp como "terra sem lei".</p>
+                        </div>
+                        <div class="bg-blue-900/10 border border-blue-900/30 p-4">
+                            <h4 class="text-blue-400 font-bold mb-2">Oportunidades</h4>
+                            <p class="text-sm">Posicionamento como defensora da democracia (ESG "S"); fortalecimento da coesão interna; prevenção de multas via acordos proativos (TACs).</p>
+                        </div>
+                        <div class="bg-red-900/10 border border-red-900/30 p-4">
+                            <h4 class="text-red-400 font-bold mb-2">Ameaças</h4>
+                            <p class="text-sm">"Cancelamento" da marca por ativismo político (de qualquer lado); Ações Civis Públicas com valores exemplares; vazamento de áudios/vídeos de reuniões internas.</p>
+                        </div>
+                    </div>
+                `
+            },
+            "modal-ato4": {
+                tag: "ATO IV: INTELIGÊNCIA ARTIFICIAL & PL 2338",
+                title: "A Governança da Inteligência Artificial",
+                body: `
+                    <h3 class="text-xl text-white font-bold mb-4">Do Hype à Auditoria</h3>
+                    <p class="mb-6">Em 2026, o Brasil deve estar sob a vigência plena ou iminente do <strong>Marco Legal da IA (PL 2338/2023)</strong>, inspirado no EU AI Act europeu, estabelecendo um regime de responsabilidade baseado em risco. A tecnologia permeia o compliance em duas dimensões antagônicas: como ferramenta de controle e como fonte de risco.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-[#1a1a1a] p-4 border border-bizz-purple/30">
+                            <h4 class="text-bizz-purple font-bold mb-2">Compliance PELA IA</h4>
+                            <p class="text-sm text-gray-400">A era da conformidade artesanal acabou. A hiperautomação permite monitorar 100% das transações em tempo real, substituindo a amostragem. Ferramentas preditivas analisam desvios de conduta, fraudes e riscos de terceiros com velocidade sobre-humana.</p>
+                        </div>
+                        <div class="bg-[#1a1a1a] p-4 border border-red-900/30">
+                            <h4 class="text-red-400 font-bold mb-2">Compliance DA IA</h4>
+                            <p class="text-sm text-gray-400">A IA introduz riscos de viés algorítmico, discriminação e alucinações. O PL 2338 exige "Avaliações de Impacto Algorítmico" para sistemas de alto risco (scoring de crédito, recrutamento, vigilância).</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bizz-purple/10 border-l-4 border-bizz-purple p-6 mb-8">
+                        <h4 class="text-white font-bold mb-2">O Fenômeno da Shadow AI</h4>
+                        <p class="text-sm">O uso não autorizado de ferramentas de IA Generativa (ChatGPT, Copilot) por colaboradores para tarefas corporativas expõe dados confidenciais, segredos industriais e dados pessoais a ambientes públicos, violando a LGPD e políticas de segurança. Proibir é ineficaz — é necessário prover ferramentas seguras e educar sobre uso responsável.</p>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">A ANPD Fortalecida</h3>
+                    <p class="mb-6">A Autoridade Nacional de Proteção de Dados (ANPD) fiscalizará não apenas dados pessoais (LGPD), mas as <strong>decisões automatizadas</strong> que afetam a vida dos cidadãos. A escassez de profissionais em "Ética de IA" e a opacidade das "black boxes" são os principais gargalos de adequação.</p>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Análise SWOT — Ato IV</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/10 border border-green-900/30 p-4">
+                            <h4 class="text-green-400 font-bold mb-2">Forças</h4>
+                            <p class="text-sm">Capacidade de processamento massivo para detecção de fraudes; redução de custos operacionais; Brasil com ANPD ativa e LGPD madura.</p>
+                        </div>
+                        <div class="bg-yellow-900/10 border border-yellow-900/30 p-4">
+                            <h4 class="text-yellow-400 font-bold mb-2">Fraquezas</h4>
+                            <p class="text-sm">Escassez de profissionais qualificados em Ética de IA; opacidade dos algoritmos dificultando a explicabilidade; Shadow AI descontrolada.</p>
+                        </div>
+                        <div class="bg-blue-900/10 border border-blue-900/30 p-4">
+                            <h4 class="text-blue-400 font-bold mb-2">Oportunidades</h4>
+                            <p class="text-sm">Liderar implementação de IA Ética como diferencial competitivo; automação do Horizon Scanning regulatório; criação de Compliance as a Service baseado em dados.</p>
+                        </div>
+                        <div class="bg-red-900/10 border border-red-900/30 p-4">
+                            <h4 class="text-red-400 font-bold mb-2">Ameaças</h4>
+                            <p class="text-sm">Vieses discriminatórios automatizados gerando passivos em escala; sanções do PL 2338 (até R$50 milhões ou % do faturamento); dependência de fornecedores globais (soberania de dados).</p>
+                        </div>
+                    </div>
+                `
+            },
+            "modal-ato5": {
+                tag: "ATO V: MATURIDADE ESTRATÉGICA",
+                title: "Maturidade Estratégica — Dados, Confiança e o Fim do 'Apaga-Incêndio'",
+                body: `
+                    <h3 class="text-xl text-white font-bold mb-4">A Virada Analítica</h3>
+                    <p class="mb-6">O Compliance Officer de 2026 deixa de ser o "policial interno" para se tornar um <strong>arquiteto de inteligência estratégica</strong>. A chave para essa mudança é o uso inteligente dos dados gerados pelo próprio sistema de conformidade.</p>
+
+                    <div class="bg-bizz-purple/10 border-l-4 border-bizz-purple p-6 mb-8">
+                        <h4 class="text-white font-bold mb-2">A Metáfora da Iluminação Pública (Mário Spinelli)</h4>
+                        <p class="text-sm mb-2"><strong>Modelo Antigo (Reativo):</strong> A ouvidoria recebia uma reclamação de lâmpada queimada e mandava trocar. O problema era resolvido pontualmente, mas a ineficiência sistêmica permanecia.</p>
+                        <p class="text-sm"><strong>Modelo Estratégico (Proativo):</strong> Ao agregar os dados, percebeu-se que iluminação era a campeã de reclamações. Mapeou-se onde e por que as lâmpadas queimavam. O dado de compliance virou insumo para política pública.</p>
+                    </div>
+
+                    <h3 class="text-xl text-white font-bold mb-4">O Net Trust Score (NTS)</h3>
+                    <p class="mb-6">A Aliant, em sua 10ª Pesquisa Nacional, introduziu o <strong>Net Trust Score</strong> — métrica que avalia o quanto o denunciante confia no sistema. O crescimento de 165% no volume de denúncias nos últimos anos não indica necessariamente mais fraudes, mas <em>maior confiança no canal e intolerância a desvios</em>. Em 2026, métricas de vaidade (número de treinamentos) darão lugar a métricas de efetividade (mudança de comportamento pós-treinamento, NTS, tempo de resposta a incidentes críticos).</p>
+
+                    <h3 class="text-xl text-white font-bold mb-4">Análise SWOT — Ato V</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/10 border border-green-900/30 p-4">
+                            <h4 class="text-green-400 font-bold mb-2">Forças</h4>
+                            <p class="text-sm">Abundância de dados dos programas de integridade (Big Data do Compliance); evolução das plataformas GRC; profissionalização da carreira de Compliance Officer no Brasil.</p>
+                        </div>
+                        <div class="bg-yellow-900/10 border border-yellow-900/30 p-4">
+                            <h4 class="text-yellow-400 font-bold mb-2">Fraquezas</h4>
+                            <p class="text-sm">Dificuldade de traduzir dados técnicos em linguagem de negócios para o Conselho; silos entre compliance, RH e Jurídico; resistência cultural à transparência total.</p>
+                        </div>
+                        <div class="bg-blue-900/10 border border-blue-900/30 p-4">
+                            <h4 class="text-blue-400 font-bold mb-2">Oportunidades</h4>
+                            <p class="text-sm">Tornar compliance Business Partner essencial; prevenção de crises via análise preditiva; melhoria do clima organizacional e retenção de talentos pela escuta ativa.</p>
+                        </div>
+                        <div class="bg-red-900/10 border border-red-900/30 p-4">
+                            <h4 class="text-red-400 font-bold mb-2">Ameaças</h4>
+                            <p class="text-sm">"Fadiga de Compliance" burocratizando o negócio; perda de credibilidade se dados apontarem problemas que a liderança se recusa a resolver; vazamento de dados sensíveis do canal de denúncias.</p>
+                        </div>
+                    </div>
+                `
+            },
+            "modal-conclusao": {
+                tag: "ROADMAP ESTRATÉGICO 2026",
+                title: "O Compliance Officer como CRO — Chief Resilience Officer",
+                body: `
+                    <p class="text-lg text-white mb-6 font-light italic">"As organizações que prosperarão não serão aquelas com os manuais mais espessos, mas aquelas capazes de ler o ambiente com clareza."</p>
+                    <p class="mb-8 text-gray-400">O profissional de conformidade de 2026 deve ser <strong>poliglota</strong>: fluente na linguagem da saúde mental, da segurança pública, da política institucional, da ciência de dados e da ética algorítmica. O compliance deixa de ser uma área de contenção para se tornar a inteligência imunológica da corporação.</p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="text-bizz-purple font-bold text-xl shrink-0">01</div>
+                            <div>
+                                <h4 class="text-white font-bold">Humanizar a Política</h4>
+                                <p class="text-sm text-gray-400">Assuma a pauta da NR-1 e Saúde Mental não como burocracia, mas como proteção de capital humano e blindagem jurídica contra o recorde de afastamentos.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-bizz-purple font-bold text-xl shrink-0">02</div>
+                            <div>
+                                <h4 class="text-white font-bold">Inteligenciar a Cadeia</h4>
+                                <p class="text-sm text-gray-400">Substitua a due diligence formalista por inteligência de segurança real — análise de grafos, geoespacial e mídias negativas para detectar infiltração do crime organizado.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-bizz-purple font-bold text-xl shrink-0">03</div>
+                            <div>
+                                <h4 class="text-white font-bold">Blindar para 2026</h4>
+                                <p class="text-sm text-gray-400">Implemente políticas de neutralidade ativa antes do ciclo eleitoral. Treine líderes sobre os limites do poder diretivo e monitore canais corporativos de comunicação.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-bizz-purple font-bold text-xl shrink-0">04</div>
+                            <div>
+                                <h4 class="text-white font-bold">Governar a IA, Não Proibi-la</h4>
+                                <p class="text-sm text-gray-400">Estabeleça políticas claras de uso de IA Generativa, proveja ferramentas seguras e forme equipes em Ética Algorítmica antes que o PL 2338 entre em pleno vigor.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-bizz-purple font-bold text-xl shrink-0">05</div>
+                            <div>
+                                <h4 class="text-white font-bold">Transformar Dados em Estratégia</h4>
+                                <p class="text-sm text-gray-400">Abandone métricas de vaidade. Use o canal de denúncias como sensor organizacional. Denúncias de assédio viram diagnóstico de cultura; falhas de fornecedores viram revisão de procurement.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openModal(id) {
+            const content = modalContent[id];
+            if (!content) return;
+            document.getElementById("modal-tag").innerText = content.tag;
+            document.getElementById("modal-title").innerText = content.title;
+            document.getElementById("modal-body").innerHTML = content.body;
+            document.getElementById("modal-overlay").classList.remove("hidden");
+            setTimeout(() => { document.getElementById("modal-overlay").classList.add("active"); }, 10);
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            document.getElementById("modal-overlay").classList.remove("active");
+            setTimeout(() => { document.getElementById("modal-overlay").classList.add("hidden"); }, 400);
+            document.body.style.overflow = "auto";
+        }
+
+        function toggleMobileMenu() {
+            alert("Menu mobile disponível em produção.");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+            const ctx = document.getElementById("riskChart").getContext("2d");
+            new Chart(ctx, {
+                type: "radar",
+                data: {
+                    labels: ["Saúde Mental", "Crime Organizado", "Assédio Eleitoral", "Risco de IA", "Regulatório"],
+                    datasets: [{
+                        label: "Nível de Ameaça 2026",
+                        data: [92, 95, 85, 80, 75],
+                        backgroundColor: "rgba(124,58,237,0.2)",
+                        borderColor: "#7c3aed",
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#7c3aed",
+                        borderWidth: 2
+                    }, {
+                        label: "Preparação Média do Mercado",
+                        data: [45, 35, 55, 30, 70],
+                        backgroundColor: "rgba(255,255,255,0.05)",
+                        borderColor: "#666",
+                        borderWidth: 1,
+                        borderDash: [5, 5]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: "rgba(255,255,255,0.1)" },
+                            grid: { color: "rgba(255,255,255,0.1)" },
+                            pointLabels: { color: "#a1a1aa", font: { size: 10 } },
+                            ticks: { display: false, backdropColor: "transparent" }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: "#fff", font: { family: "Inter" } } }
+                    }
+                }
+            });
+
+            window.addEventListener("scroll", () => {
+                const nav = document.getElementById("navbar");
+                if (window.scrollY > 50) {
+                    nav.classList.add("bg-black/80", "backdrop-blur-md", "shadow-lg");
+                } else {
+                    nav.classList.remove("bg-black/80", "backdrop-blur-md", "shadow-lg");
+                }
+            });
+        });
+
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    </script>
+</body>
+</html>
